@@ -25,4 +25,11 @@ class HomepageControllerTest extends WebTestCase
         $this->requestHomepage();
         self::assertResponseStatusCodeSame(Response::HTTP_OK);
     }
+
+    // Permet de vérifier la présence d'un titre h1 contenant Bienvenue sur la page d'accueil
+    public function testMainTitleOnHomepage(): void
+    {
+        $this->requestHomepage();
+        self::assertSelectorTextContains('h1', 'Bienvenue');
+    }
 }
